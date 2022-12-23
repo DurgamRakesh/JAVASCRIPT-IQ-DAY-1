@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-IQ-DAY-1</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <h1>JAVASCRIPT INTERVIEW QUESTIONS PREPARATION DAY-1</h1>
+    <p>1.Difference between “ == “ and “ === “ operators.</p>
+    <pre>
+        IN JS,Both are comparision operators and they are return boolean values only.
+        The difference between  both that is '==' operator is used to compare the values where as '===' operator is used to compare both value and datatype.
+
+        EX:
+        var a = 100;
+        var b = '100';
+
+        console.log(a==b)--->return true because it checks values not datatype.
+        -it will do type coresion to change the datatype so that value can be campared
+
+        console.log(a===b)--->return false because it checks value and datatype.
+        -values are same but a is number type and b is string type.
+
+        -so strict equal (===) operator both value and datatype should be same (a=100,b=100) otherwise return false.
+
+
+    </pre>
+    <p>2.What is the spread operator?</p>
+    <pre>
+        IN JS,javascript spread operator(...) allow us to destructure the non-primitive datatypes like arrays,objects to access the each element individully.
+        -The spread operator denoted by three dots(...)
+        -It was introduced in ES6
+        
+        EX:
+        const array1 = [100,200,300,400,500];
+
+        console.log(...array1);
+
+        Output: 100 200 300 400 500  -> it is called destructure 
+
+
+    </pre>
+    <p>3.What are the differences between var, let and const?</p>
+    <pre>
+        var is a global scoped means ,variable created with var keyword will be access globally.
+        it can redeclared and reinitiazed.
+        -It is avaible from beginning when the javascript was introduced
+        EX: var num = 100;
+
+        let is a block scoped means ,variable created with let keyword will be access only in that specific block.
+        it cannot redeclared but it can be reinitiazed.
+        -It was introduced in ES6.
+        EX: let num = 100;
+
+        const is also block scoped means ,variable created with const keyword will be access only in that specific block.
+        it cannot redeclared and cannot be reinitiazed.
+        -It is also introduced in ES6.
+        EX: const num = 100;
+
+    </pre>
+    <p>4.What is execution context?</p>
+    <pre>
+       IN JS, javascript engine is uses a call stacks and also created special environment to handle the execution of js code.
+       this environment is called as execution context.
+       -Execution content contains code that's currently running ,and everything that aids in its execution.
+       -In execution content two phases are there 
+           -Global execution content.
+           -Function execution content.
+
+    </pre>
+    <p>5.What is meant by first class functions?</p>
+    <pre>
+       In JS , A programming language is said to have first-class function when functions in that language are treated like any other variable.
+
+       -In such a language function can be passed as a argument to another function,and can be return by another function,
+       and can be assigned as a value to variable.
+
+       EX:
+       Passing as argument:-
+
+       function myfun1(){
+        return 'Hello welcome to';
+       }
+
+       function myfun2(callback,msg){
+        console.log(callback(),msg)
+       }
+
+       myfun2(myfun1,'javascript');
+
+       Output: Hello welcome to javascript
+
+       return a function:-
+
+       function myfun1(){
+        return () => {
+            console.log('Hello welcome to javascript');
+        }
+       }
+       myfun1();
+
+       Output: Hello welcome to javascript
+
+       assigned a function to a variable:-
+
+       const myfun = () => {
+        console.log('Hello welcome to javascript');
+       }
+       myfun();
+
+       Output: Hello welcome to javascript
+    </pre>
+    <p>6.What are closures? Give an example of closure?</p>
+    <pre>
+       In JS ,closure is the combination of a function bundled together with reference to its nearest state (the lexical environment).
+       -In simple words access the outer function from an inner function.
+
+       EX:
+       function outside(){
+        var num = 500;
+        function inside(){
+            console.log(num);
+        }
+        return inside;
+       }
+       outside();
+
+       Output: 500
+    </pre>
+    <p>7.Explain call(), apply() and, bind() methods. Give an example of call(), apply(), bind()?</p>
+    <pre>
+       In JS ,
+       call() method calls the function with a given this value and arguments provided individually.
+
+       EX:
+       const details = {
+        fullName: function(city, country) {
+          return this.firstName + " " + this.lastName + "," + city + "," + country;
+        }
+      }
+      const student = {
+        firstName:"abc",
+        lastName: "xyz"
+      }
+      details.fullName.call(student, "hyd", "india");
+
+      apply() method calls the specified function with a given this value, and arguments provided as an array.
+
+      EX:
+       const details = {
+        fullName: function(city, country) {
+          return this.firstName + " " + this.lastName + "," + city + "," + country;
+        }
+      }
+      const student = {
+        firstName:"abc",
+        lastName: "xyz"
+      }
+      details.fullName.call(student,["hyd", "india"]);
+
+      bind() method creates a new function that, when called, has its this keyword set to the provided value,
+       with a given sequence of arguments preceding any provided when the new function is called.
+
+      EX:
+      const student = {
+      firstName:"abc",
+      lastName: "xyz",
+      fullname: function () {
+        console.log(this.firstName + " " + this.lastName;);
+      }
+    }
+    
+    let fullname = student.fullname.bind(student);
+    setTimeout(fullName, 3000);
+    </pre>
+    
+</body>
+</html>

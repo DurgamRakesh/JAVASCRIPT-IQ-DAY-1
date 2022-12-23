@@ -1,0 +1,18 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    background-color: black;
+}
+h1{
+    color: red;
+    text-align: center;
+}
+p{
+    color: yellow;
+    font-size: 2rem;
+}
+pre{
+    color: rgb(3, 5, 90);
+    font-size: 1rem;
+    background-color: rgb(130, 202, 122);
+}
